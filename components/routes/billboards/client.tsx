@@ -7,12 +7,9 @@ import { FC } from "react";
 import { Heading } from "@/components/routes/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  BillboardColumn,
-  columns,
-} from "@/components/billboards/data-table/columns";
-import { DataTable } from "@/components/billboards/data-table";
 import { ApiList } from "@/components/utils/ApiList";
+import { BillboardColumn, columns } from "./data-table/columns";
+import { DataTable } from "./data-table";
 
 interface BillboardClientProps {
   data: BillboardColumn[];

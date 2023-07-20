@@ -7,10 +7,9 @@ import { FC } from "react";
 import { Heading } from "@/components/routes/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { columns } from "@/components/sizes/data-table/columns";
-import { DataTable } from "@/components/sizes/data-table";
 import { ApiList } from "@/components/utils/ApiList";
-import { SizeColumn } from "@/components/sizes/data-table/columns";
+import { DataTable } from "./data-table";
+import { SizeColumn, columns } from "./data-table/columns";
 
 interface SizesClientProps {
   data: SizeColumn[];

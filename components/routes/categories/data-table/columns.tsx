@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 
-import { CellAction } from "@/components/categories/data-table/CellAction";
+import { CellAction } from "./CellAction";
 
 export type CategoryColumn = {
   id: string;

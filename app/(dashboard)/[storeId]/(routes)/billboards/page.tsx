@@ -1,8 +1,8 @@
 import { format } from "date-fns";
 
 import prismadb from "@/lib/prismadb";
-import { BillboardClient } from "@/components/billboards/client";
-import { BillboardColumn } from "@/components/billboards/data-table/columns";
+import { BillboardClient } from "@/components/routes/billboards/client";
+import { BillboardColumn } from "@/components/routes/billboards/data-table/columns";
 
 const BillboardsPage = async ({ params }: { params: { storeId: string } }) => {
   const billboards = await prismadb.billboard.findMany({

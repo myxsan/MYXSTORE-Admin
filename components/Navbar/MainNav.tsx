@@ -21,22 +21,27 @@ export function MainNav({
     {
       href: `/${params.storeId}/billboards`,
       label: "Billboards",
-      active: pathname === `/${params.storeId}/billboards`,
+      active: pathname.includes(`/${params.storeId}/billboards`),
     },
     {
       href: `/${params.storeId}/categories`,
       label: "Categories",
-      active: pathname === `/${params.storeId}/categories`,
+      active: pathname.includes(`/${params.storeId}/categories`),
     },
     {
       href: `/${params.storeId}/sizes`,
       label: "Sizes",
-      active: pathname === `/${params.storeId}/sizes`,
+      active: pathname.includes(`/${params.storeId}/sizes`),
+    },
+    {
+      href: `/${params.storeId}/colors`,
+      label: "Colors",
+      active: pathname.includes(`/${params.storeId}/colors`),
     },
     {
       href: `/${params.storeId}/settings`,
       label: "Settings",
-      active: pathname === `/${params.storeId}/settings`,
+      active: pathname.includes(`/${params.storeId}/settings`),
     },
   ];
   return (

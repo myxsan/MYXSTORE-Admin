@@ -7,15 +7,15 @@ import { FC } from "react";
 import { Heading } from "@/components/routes/Heading";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { DataTable } from "@/components/billboards/data-table";
 import { ApiList } from "@/components/utils/ApiList";
-import { CategoryColumn, columns } from "./data-table/columns";
+import { DataTable } from "./data-table";
+import { ColorColumn, columns } from "./data-table/columns";
 
-interface CategoryClientProps {
-  data: CategoryColumn[];
+interface ColorsClientProps {
+  data: ColorColumn[];
 }
 
-export const CategoryClient: FC<CategoryClientProps> = ({ data }) => {
+export const ColorsClient: FC<ColorsClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
 
@@ -23,21 +23,19 @@ export const CategoryClient: FC<CategoryClientProps> = ({ data }) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Categories (${data ? data.length : 0})`}
-          description="Manage categories for your store."
+          title={`Colors (${data ? data.length : 0})`}
+          description="Manage colors for your store."
         />
-        <Button
-          onClick={() => router.push(`/${params.storeId}/categories/new`)}
-        >
+        <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
           <Plus className="mr-2 h-4 w-4" />
           Add New
         </Button>
       </div>
       <Separator />
       <DataTable searchKey="name" columns={columns} data={data} />
-      <Heading title="API" description="API calls for Categories" />
+      <Heading title="API" description="API calls for Colors" />
       <Separator />
-      <ApiList entityName="categories" entityIdName="categoryId" />
+      <ApiList entityName="colors" entityIdName="colorId" />
     </>
   );
 };
