@@ -23,13 +23,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { ApiAlert } from "@/components/ui/api-alert";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "../ui/image-upload";
 
 const formSchema = z.object({
-  label: z.string().min(1, "Name must include at least 1 character(s)"),
-  imageUrl: z.string().min(1),
+  label: z.string().min(1, "Label must include at least 1 character(s)"),
+  imageUrl: z.string().min(1, "You must upload an image to conutinue"),
 });
 
 interface BillboardFormProps {
@@ -42,7 +40,6 @@ export const BillboardForm: FC<BillboardFormProps> = ({ initialData }) => {
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const origin = useOrigin();
   const params = useParams();
   const router = useRouter();
 
@@ -89,7 +86,7 @@ export const BillboardForm: FC<BillboardFormProps> = ({ initialData }) => {
         `/api/${params.storeId}/billboards/${params.billboardId}`
       );
       router.refresh();
-      router.push("/");
+      router.push(`/${params.storeId}/billboards`);
       toast.success("Billboard deleted");
     } catch (error) {
       toast.error(
@@ -170,7 +167,6 @@ export const BillboardForm: FC<BillboardFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
-      <Separator />
     </>
   );
 };
